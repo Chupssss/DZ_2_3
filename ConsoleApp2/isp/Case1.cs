@@ -12,7 +12,7 @@ namespace ConsoleApp2.isp
             void Print(string document);
         }
         public interface IScanner {
-            void Print(string document);
+            void Scan(string document);
         }
 
         public interface IFax {
