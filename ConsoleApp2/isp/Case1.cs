@@ -8,15 +8,21 @@ namespace ConsoleApp2.isp
 {
     internal class Case1
     {
-        public interface IOfficeDevice
-        {
+        public interface IPrinter { 
             void Print(string document);
-            void Scan(string document);
-            void Fax(string document);
-            void Copy(string document);
+        }
+        public interface IScanner {
+            void Print(string document);
         }
 
-        public class BasicPrinter : IOfficeDevice
+        public interface IFax {
+            void Fax(string document);
+        }
+
+        public interface ICopy {
+            void Copy(string document);
+        }
+        public class BasicPrinter : IPrinter
         {
             public string Model { get; set; }
 
@@ -51,7 +57,7 @@ namespace ConsoleApp2.isp
             }
         }
 
-        public class AllInOnePrinter : IOfficeDevice
+        public class AllInOnePrinter : IPrinter, IScanner, IFax, ICopy
         {
             public string Model { get; set; }
 
